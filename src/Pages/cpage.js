@@ -68,7 +68,7 @@ function Cpage() {
     
 
       for (let i =0 ; i<=seasons[watchValue-1].episode_count;i++) {
-        list.push(<li><a href={`https://www.2embed.to/embed/tmdb/tv?id=${id}&s=${watchValue}&e=${i+1}`} >Ep{i+1}</a></li>)
+        list.push(<li><a href={`https://www.2embed.cc/embed/tmdb/tv?id=${id}&s=${watchValue}&e=${i+1}`} >Ep{i+1}</a></li>)
        
       }}
   return (

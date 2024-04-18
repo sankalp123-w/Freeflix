@@ -96,7 +96,7 @@ function Cpage() {
       `https://api.themoviedb.org/3/${media_type}/${id}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`
     );
     setContent(data);
-    if (data.seasons) setSeasons(data.seasons);
+    if (data.seasons) setSeasons(data.seasons.filter((s)=>{return s.name!=="Specials"}));
     setLoading(false); // Set loading to false after data is fetched
   };
 
@@ -116,11 +116,12 @@ function Cpage() {
   const list = [];
   if (media_type === "tv" && valc) {
     for (let i = 0; i < seasons[watchValue - 1]?.episode_count; i++) {
+      console.log(watchValue,seasons[watchValue-1])
       list.push(
         <li key={i}>
           <button
             onClick={() => {
-              setVideo(`https://vidsrc.to/embed/tv/${id}/${watchValue}/${i + 1}`);
+              setVideo(`https://vidsrc.to/embed/tv/${id}/${watchValue}/${i+1}`);
             }}
           >
             Ep{i + 1}
